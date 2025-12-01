@@ -1,3 +1,4 @@
+import 'package:custom_paint/views/flower_details.dart';
 import 'package:flutter/material.dart';
 
 class CustomFlower extends StatelessWidget {
@@ -37,104 +38,115 @@ class CustomFlower extends StatelessWidget {
             // ---------------------------------------------------------
             // 1. الكارت الأبيض ومحتواه
             // ---------------------------------------------------------
-            Container(
-              width: cardWidth,
-              height: cardHeight,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(32),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    // الصورة
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(32),
-                      child: Image.asset(
-                        image,
-                        width: 70,
-                        height: 80,
-                        fit: BoxFit.cover,
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return FlowerDetails();
+                    },
+                  ),
+                );
+              },
+              child: Container(
+                width: cardWidth,
+                height: cardHeight,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(32),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      // الصورة
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(32),
+                        child: Image.asset(
+                          image,
+                          width: 70,
+                          height: 80,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 8),
-                    // الكلام
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            children: const [
-                              Icon(Icons.star, color: Colors.amber, size: 10),
-                              Icon(Icons.star, color: Colors.amber, size: 10),
-                              Icon(Icons.star, color: Colors.amber, size: 10),
-                              Icon(Icons.star, color: Colors.amber, size: 10),
-                              Icon(
-                                Icons.star_border,
-                                color: Colors.grey,
-                                size: 10,
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 4),
-                          const Text(
-                            'Banana tree',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
+                      const SizedBox(width: 8),
+                      // الكلام
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              children: const [
+                                Icon(Icons.star, color: Colors.amber, size: 10),
+                                Icon(Icons.star, color: Colors.amber, size: 10),
+                                Icon(Icons.star, color: Colors.amber, size: 10),
+                                Icon(Icons.star, color: Colors.amber, size: 10),
+                                Icon(
+                                  Icons.star_border,
+                                  color: Colors.grey,
+                                  size: 10,
+                                ),
+                              ],
                             ),
-                          ),
-                          const SizedBox(height: 4),
-                          const Text(
-                            '\$78',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 4),
-                          Row(
-                            children: [
-                              Container(
-                                decoration: const BoxDecoration(
-                                  color: Color(0xff92d588),
-                                  shape: BoxShape.circle,
-                                ),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(2.0),
-                                  child: Icon(
-                                    Icons.remove,
-                                    size: 10,
-                                    color: Colors.white,
+                            const SizedBox(height: 4),
+                            const Text(
+                              'Banana tree',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            const Text(
+                              '\$78',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(height: 4),
+                            Row(
+                              children: [
+                                Container(
+                                  decoration: const BoxDecoration(
+                                    color: Color(0xff92d588),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(2.0),
+                                    child: Icon(
+                                      Icons.remove,
+                                      size: 10,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const Text(
-                                ' x2 ',
-                                style: TextStyle(fontSize: 12),
-                              ),
-                              Container(
-                                decoration: const BoxDecoration(
-                                  color: Color(0xff92d588),
-                                  shape: BoxShape.circle,
+                                const Text(
+                                  ' x2 ',
+                                  style: TextStyle(fontSize: 12),
                                 ),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(2.0),
-                                  child: Icon(
-                                    Icons.add,
-                                    size: 10,
-                                    color: Colors.white,
+                                Container(
+                                  decoration: const BoxDecoration(
+                                    color: Color(0xff92d588),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(2.0),
+                                    child: Icon(
+                                      Icons.add,
+                                      size: 10,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    // مسافة عشان الكلام ميوصلش للآخر
-                    const SizedBox(width: 30),
-                  ],
+                      // مسافة عشان الكلام ميوصلش للآخر
+                      const SizedBox(width: 30),
+                    ],
+                  ),
                 ),
               ),
             ),
