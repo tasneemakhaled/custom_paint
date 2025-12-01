@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 // تأكد من وجود هذه الملفات أو استبدلها بالكود الخاص بها إذا كانت لديك
-import 'package:custom_paint/views/widgets/left_arrow_widget.dart';
-import 'package:custom_paint/views/widgets/right_arrow_widget.dart';
-import 'package:custom_paint/views/widgets/white_card_painter.dart';
+import 'package:custom_paint/widgets/left_arrow_widget.dart';
+import 'package:custom_paint/widgets/right_arrow_widget.dart';
+import 'package:custom_paint/widgets/white_card_painter.dart';
 
 class FlowerDetails extends StatelessWidget {
   const FlowerDetails({super.key});
