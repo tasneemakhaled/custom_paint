@@ -1,5 +1,6 @@
+import 'package:custom_paint/views/third_view.dart';
 import 'package:flutter/material.dart';
-// تأكد من وجود هذه الملفات أو استبدلها بالكود الخاص بها إذا كانت لديك
+
 import 'package:custom_paint/widgets/left_arrow_widget.dart';
 import 'package:custom_paint/widgets/right_arrow_widget.dart';
 import 'package:custom_paint/widgets/white_card_painter.dart';
@@ -9,13 +10,11 @@ class FlowerDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // نستخدم MediaQuery لأخذ أبعاد الشاشة
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: const Color(0xff166b0a),
       body: SizedBox(
-        // الكارت يأخذ 85% من ارتفاع الشاشة
         height: size.height * 0.9,
         width: double.infinity,
         child: Stack(
@@ -62,15 +61,32 @@ class FlowerDetails extends StatelessWidget {
             Positioned(
               bottom: 50, // نفس ارتفاع الشمال
               right: 0, // لازق في اليمين
-              child: CustomPaint(
-                size: const Size(180, 100),
-                painter: RPSCustomPainterRightArrow(), // الكود الجديد تحت
-                child: Container(
-                  width: 180,
-                  height: 100,
-                  alignment: Alignment.centerRight, // محاذاة السهم
-                  padding: const EdgeInsets.only(right: 15), // تظبيط مكان السهم
-                  child: const Icon(Icons.home, color: Colors.black, size: 20),
+              child: InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ThirdView();
+                      },
+                    ),
+                  );
+                },
+                child: CustomPaint(
+                  size: const Size(180, 100),
+                  painter: RPSCustomPainterRightArrow(), // الكود الجديد تحت
+                  child: Container(
+                    width: 180,
+                    height: 100,
+                    alignment: Alignment.centerRight, // محاذاة السهم
+                    padding: const EdgeInsets.only(
+                      right: 15,
+                    ), // تظبيط مكان السهم
+                    child: const Icon(
+                      Icons.home,
+                      color: Colors.black,
+                      size: 20,
+                    ),
+                  ),
                 ),
               ),
             ),
