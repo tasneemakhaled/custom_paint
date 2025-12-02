@@ -6,114 +6,323 @@ class FourthView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       backgroundColor: Color(0xff343434),
-      body: Column(
-        children: [
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                    ),
+                    child: Icon(Icons.arrow_back, color: Colors.black),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return FourthView();
+                          },
+                        ),
+                      );
+                    },
+                    child: SizedBox(
+                      height: 80,
+                      width: 75,
+                      child: Stack(
+                        clipBehavior: Clip.none,
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          Container(
+                            height: 100,
+                            width: 75,
+                            padding: const EdgeInsets.only(top: 25, bottom: 10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(16), //
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.15),
+                                  blurRadius: 16,
+                                  offset: const Offset(0, 10),
+                                ),
+                              ],
+                            ),
+                            child: const Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Center(
+                                  child: Text(
+                                    "    10\nProducts",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14,
+                                      // height: 1,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Positioned(
+                            top: -20,
+                            child: Stack(
+                              clipBehavior: Clip.none,
+                              children: [
+                                Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.black,
+                                    shape: BoxShape.circle,
+
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black26,
+                                        blurRadius: 10,
+                                        offset: Offset(0, 5),
+                                      ),
+                                    ],
+                                  ),
+                                  child: const Icon(
+                                    Icons.shopping_bag_outlined,
+                                    color: Colors.white,
+                                    size: 24,
+                                  ),
+                                ),
+                                // النقطة الخضراء
+                                Positioned(
+                                  right: 0,
+                                  top: 0,
+                                  child: Container(
+                                    width: 14,
+                                    height: 14,
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xff687E59),
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Exotic ',
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 40,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                  ),
-                  child: Icon(Icons.arrow_back, color: Colors.black),
+                Text(
+                  'fruits',
+                  style: TextStyle(color: Color(0xff687E59), fontSize: 40),
                 ),
-                InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return FourthView();
-                        },
-                      ),
-                    );
-                  },
-                  child: Container(
-                    height: 90,
-                    width: 90,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(32),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Stack(
-                          // clipBehavior: Clip.none,
-                          children: [
-                            Container(
-                              width: 45,
-                              height: 45,
-                              decoration: const BoxDecoration(
-                                color: Colors.black,
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Icon(
-                                Icons.shopping_bag_outlined,
-                                color: Colors.white,
-                                size: 28,
-                              ),
-                            ),
-                            Positioned(
-                              right: 0,
-                              top: 0,
-                              child: Container(
-                                width: 12,
-                                height: 12,
-                                decoration: const BoxDecoration(
-                                  color: Colors.green,
-                                  shape: BoxShape.circle,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 5),
-                        const Text(
-                          "10\nProducts",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
+                Text(
+                  'See more',
+                  style: TextStyle(
+                    color: Color(0xff687E59),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
             ),
-          ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Exotic ',
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 40,
-                color: Colors.white,
-              ),
+            SizedBox(height: 40),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  height: 130,
+                  width: 130,
+                  decoration: BoxDecoration(
+                    color: Color(0xff666666),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Positioned(
+                        top: -370,
+                        right: 10,
+                        child: Image.asset(
+                          height: 700,
+                          width: 100,
+                          'assets/images/images-removebg-preview.png',
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            SizedBox(height: 10),
+                            Text(
+                              'Pitaya',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                              ),
+                            ),
+                            Text(
+                              'PREMIUM',
+                              style: TextStyle(
+                                color: Color(0xff687E59),
+                                fontSize: 16,
+                              ),
+                            ),
+                            Text(
+                              '4.56\$',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 130,
+                  width: 130,
+                  decoration: BoxDecoration(
+                    color: Color(0xff666666),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Positioned(
+                        top: -370,
+                        right: 10,
+                        child: Image.asset(
+                          height: 700,
+                          width: 100,
+
+                          'assets/images/71mo0ZGUt+L-removebg-preview.png',
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            SizedBox(height: 10),
+                            Text(
+                              'Papya',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                              ),
+                            ),
+                            Text(
+                              'PREMIUM',
+                              style: TextStyle(
+                                color: Color(0xff687E59),
+                                fontSize: 16,
+                              ),
+                            ),
+                            Text(
+                              '4.56\$',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'fruits',
-                style: TextStyle(color: Color(0xff687E59), fontSize: 40),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Offers',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'See more',
+                  style: TextStyle(
+                    color: Color(0xff687E59),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0xff666666),
+                borderRadius: BorderRadius.circular(16),
               ),
-              Text(
-                'See more',
-                style: TextStyle(
-                  color: Color(0xff687E59),
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset(
+                      height: 100,
+                      width: 150,
+                      'assets/images/guava-fruits-isolated-white-background_489827-404-removebg-preview.png',
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          'Guava',
+                          style: TextStyle(color: Colors.white, fontSize: 24),
+                        ),
+                        Text(
+                          'PREMIUM',
+                          style: TextStyle(
+                            color: Color(0xff687E59),
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Text('2.75\$', style: TextStyle(color: Colors.white60)),
+                        Text('2.00\$', style: TextStyle(color: Colors.white)),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }

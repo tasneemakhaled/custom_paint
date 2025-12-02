@@ -73,14 +73,12 @@ class FlowerDetails extends StatelessWidget {
                 },
                 child: CustomPaint(
                   size: const Size(180, 100),
-                  painter: RPSCustomPainterRightArrow(), // الكود الجديد تحت
+                  painter: RPSCustomPainterRightArrow(),
                   child: Container(
                     width: 180,
                     height: 100,
-                    alignment: Alignment.centerRight, // محاذاة السهم
-                    padding: const EdgeInsets.only(
-                      right: 15,
-                    ), // تظبيط مكان السهم
+                    alignment: Alignment.centerRight,
+                    padding: const EdgeInsets.only(right: 15),
                     child: const Icon(
                       Icons.home,
                       color: Colors.black,
@@ -104,7 +102,6 @@ class FlowerDetails extends StatelessWidget {
               ),
             ),
 
-            // 5. أيقونة القفل
             Positioned(
               bottom: -50,
               right: 170,
@@ -122,15 +119,13 @@ class RPSCustomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = Colors.white
+      ..color = Color(0xff92d588)
       ..style = PaintingStyle.fill;
 
     Path path = Path();
 
-    // 1. روح لنقطة البداية (من كودك)
     path.moveTo(size.width * 0.3561000, size.height * 0.3980000);
 
-    // 2. ارسم القبة (السطور بتاعتك زي ما هي)
     path.cubicTo(
       size.width * 0.4408500,
       size.height * 0.4078000,
