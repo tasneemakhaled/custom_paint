@@ -1,3 +1,4 @@
+import 'package:custom_paint/widgets/custom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
 class FourthView extends StatelessWidget {
@@ -6,13 +7,15 @@ class FourthView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      bottomNavigationBar: CustomBottomNavBar(),
+
+      // الدالة اللي بتعمل كل أيقونة
       backgroundColor: Color(0xff343434),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            SizedBox(height: 30),
+            SizedBox(height: 15),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -151,7 +154,7 @@ class FourthView extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 35),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -211,6 +214,7 @@ class FourthView extends StatelessWidget {
                   width: 130,
                   decoration: BoxDecoration(
                     color: Color(0xff666666),
+
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Stack(
@@ -292,7 +296,7 @@ class FourthView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Image.asset(
-                      height: 100,
+                      height: 80,
                       width: 150,
                       'assets/images/guava-fruits-isolated-white-background_489827-404-removebg-preview.png',
                     ),
@@ -328,12 +332,46 @@ class FourthView extends StatelessWidget {
   }
 }
 
-
 // https://img.freepik.com/premium-photo/guava-fruits-isolated-white-background_489827-404.jpg   البطيخ
-
 
 // https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ3_3tnoalYEanAmF10GPgC-hM8qlM4KQzrX4ybckfAaRSxjqsf   اورانج
 
-
 // https://m.media-amazon.com/images/I/71mo0ZGUt+L.jpg  البنفسجية
 //#666666
+class CurvedContainerClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+
+    // نبدأ من أعلى اليسار
+    path.lineTo(0, 0);
+
+    // خط للأعلى اليمين
+    path.lineTo(size.width - 20, 0);
+
+    // منحنى في الجانب الأيمن العلوي
+    path.quadraticBezierTo(size.width, 0, size.width, 20);
+
+    // خط لأسفل اليمين
+    path.lineTo(size.width, size.height - 20);
+
+    // منحنى في الجانب الأيمن السفلي
+    path.quadraticBezierTo(
+      size.width,
+      size.height,
+      size.width - 20,
+      size.height,
+    );
+
+    // خط للأسفل اليسار
+    path.lineTo(0, size.height);
+
+    // نقفل المسار
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}

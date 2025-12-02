@@ -224,7 +224,7 @@ class ThirdView extends StatelessWidget {
                               ],
                             ),
                             child: const Icon(
-                              Icons.shopping_basket,
+                              Icons.shopping_basket_outlined,
                               color: Colors.white,
                               size: 24,
                             ),
