@@ -1,8 +1,8 @@
 import 'dart:ui' as ui;
+import 'package:custom_paint/views/thirdd_view.dart';
 import 'package:flutter/material.dart';
 
-// تأكدي إن المسارات دي صح عندك في المشروع
-import 'package:custom_paint/views/third_view.dart';
+import 'package:custom_paint/views/fourthh_view.dart';
 import 'package:custom_paint/widgets/left_arrow_widget.dart';
 import 'package:custom_paint/widgets/right_arrow_widget.dart';
 import 'package:custom_paint/widgets/white_card_painter.dart';
